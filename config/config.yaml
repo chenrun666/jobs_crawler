@@ -1,0 +1,23 @@
+# http 监听地址
+http:
+  host:
+  port: 9090
+
+crawl:
+  spec: 0 0 */1 * * ?
+  concurrency_num: 3
+  # 抓取间隔时间,避免被封IP
+  sleep: 30s
+  parser: colly
+
+storage:
+  driver: mysql
+  user: root
+  password:
+  host: localhost
+  port: 3306
+  dbname: crawler
+  charset: utf8mb4
+
+requestHeader:
+  cookier: _uab_collina=157546069513952508437941; __c=1575460691; __g=-; __l=l=%2Fwww.zhipin.com%2Fweb%2Fcommon%2Fsecurity-check.html%3Fseed%3DC7tVU%252FII2NKcfKoBKlLM77A8L%252BE9UUjx%252BTf6XSqBX%252FE%253D%26name%3De57eb16e%26ts%3D1575460688041%26callbackUrl%3D%252Fjob_detail%252F438f3d7ff48c50751X160t26ElY%257E.html%26srcReferer%3Dhttp%253A%252F%252Flocalhost%253A9090%252F%253Fname%253D%2526company%253D%2526p%253D0&r=http%3A%2F%2Flocalhost%3A9090%2F%3Fname%3D%26company%3D%26p%3D0&friend_source=0&friend_source=0; Hm_lvt_194df3105ad7148dcf2b98a91b5e727a=1575460698,1575461068,1575461865; lastCity=101010100; Hm_lpvt_194df3105ad7148dcf2b98a91b5e727a=1575545998; __zp_stoken__=9982RXF%2FupXcmBmklLConp1XDjFvrQseHYgGd%2BSmsJexsgWHvwfpRWbjTFguYHADIRheK7Js0eqKjA6QFS0WgAAh%2FQBL9LXazE%2FG%2BJKANO0fMcg31c4woUNX1nLT1dY%2FafBW; __a=99526065.1575460691..1575460691.39.1.39.39
