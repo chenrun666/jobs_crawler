@@ -3,20 +3,21 @@ package global
 import (
 	"flag"
 	"fmt"
-	"github.com/fsnotify/fsnotify"
-	"github.com/spf13/viper"
 	"log"
 	"math/rand"
 	"sync"
 	"time"
+
+	"github.com/fsnotify/fsnotify"
+	"github.com/spf13/viper"
 )
 
 var once = new(sync.Once)
 
 var (
-	NeedAll = flag.Bool("all", false, "是否需要全量抓取，默认否")
+	NeedAll   = flag.Bool("all", false, "是否需要全量抓取，默认否")
 	WhichSite = flag.String("site", "", "抓取哪个站点(空表示所有站点)")
-	config = flag.String("config", "config", "环境变量档案名称, 默认config")
+	config    = flag.String("config", "config", "环境变量档案名称, 默认config")
 )
 
 func Init() {
@@ -39,9 +40,10 @@ func Init() {
 	})
 }
 
+// 监听配置文件变化
 func watchConfig() {
 	viper.WatchConfig()
-	viper.OnConfigChange(func(e fsnotify.Event){
+	viper.OnConfigChange(func(e fsnotify.Event) {
 		log.Printf("config file changed: %s \n", e.Name)
 	})
 }
